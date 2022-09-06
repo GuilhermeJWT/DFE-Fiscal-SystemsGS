@@ -12,6 +12,8 @@ import java.math.BigDecimal;
 @SequenceGenerator(name = "NotaEntradaSeq", sequenceName = "SEQ_NOTA_ENTRADA", allocationSize = 1)
 public class NotaEntrada implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "NotaEntradaSeq")
     private Long id;

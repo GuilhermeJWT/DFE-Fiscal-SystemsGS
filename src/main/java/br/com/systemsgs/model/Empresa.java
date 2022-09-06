@@ -12,6 +12,8 @@ import java.io.Serializable;
 @SequenceGenerator(name = "EmpresaSeq", sequenceName = "SEQ_EMPRESA", allocationSize = 1)
 public class Empresa implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "EmpresaSeq")
     private Long id;
