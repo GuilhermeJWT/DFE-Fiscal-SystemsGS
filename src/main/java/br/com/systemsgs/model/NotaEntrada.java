@@ -20,12 +20,18 @@ public class NotaEntrada implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "NotaEntradaSeq")
     private Long id;
+
     private String schema;
+
     private byte[] xml;
+
     @NotNull(message = "Chave Obrigatória")
     private String chave;
+
     private String nomeEmitente;
+
     private String cnpjEmitente;
+
     private BigDecimal valor;
 
     @ManyToOne

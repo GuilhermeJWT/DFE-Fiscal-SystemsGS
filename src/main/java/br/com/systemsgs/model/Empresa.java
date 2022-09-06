@@ -1,10 +1,12 @@
 package br.com.systemsgs.model;
 
+import br.com.swconsultoria.nfe.dom.enuns.AmbienteEnum;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Data
@@ -19,11 +21,22 @@ public class Empresa implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "EmpresaSeq")
     private Long id;
+
     @NotEmpty(message = "Cpf/Cnpj Obrigatório")
+
     private String cpfCnpj;
+
     private String razaoSocial;
+
+    @NotNull(message = "Certificado Obrigatório")
+    @NotEmpty(message = "Certificado Obrigatório")
     private byte[] certificado;
+
     private String senhaCertificado;
+
     private String nsu;
+
+    @Enumerated(EnumType.STRING)
+    private AmbienteEnum ambiente;
 
 }
