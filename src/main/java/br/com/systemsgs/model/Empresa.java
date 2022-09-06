@@ -3,6 +3,7 @@ package br.com.systemsgs.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 
 @Data
@@ -14,6 +15,7 @@ public class Empresa implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "EmpresaSeq")
     private Long id;
+    @NotEmpty(message = "Cpf/Cnpj Obrigatório")
     private String cpfCnpj;
     private String razaoSocial;
     private byte[] certificado;
