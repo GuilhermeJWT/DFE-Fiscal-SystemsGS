@@ -1,5 +1,6 @@
 package br.com.systemsgs.service;
 
+import br.com.systemsgs.exceptions.ResourceNotFoundException;
 import br.com.systemsgs.model.Empresa;
 import br.com.systemsgs.repository.EmpresaRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -19,16 +20,20 @@ public class EmpresaService {
     }
 
     @Transactional
-    private Empresa salvar(Empresa empresa){
+    public Empresa salvar(Empresa empresa){
         return empresaRepository.save(empresa);
     }
 
-    private void deletar(Long idEmpresa){
+    public void deletar(Long idEmpresa){
         empresaRepository.deleteById(idEmpresa);
     }
 
-    private List<Empresa> listarTudo(){
+    public List<Empresa> listarEmpresas(){
         return empresaRepository.findAll();
+    }
+
+    public Empresa findById(Long id){
+        return empresaRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Empresa não Encontrada: " + id));
     }
 
 }

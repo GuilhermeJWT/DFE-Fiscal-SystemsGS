@@ -1,5 +1,6 @@
 package br.com.systemsgs.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -8,6 +9,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 
 @Data
+@AllArgsConstructor
 @Entity
 @Table(name = "nota_entrada")
 @SequenceGenerator(name = "NotaEntradaSeq", sequenceName = "SEQ_NOTA_ENTRADA", allocationSize = 1)

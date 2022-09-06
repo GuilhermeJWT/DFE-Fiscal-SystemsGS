@@ -1,5 +1,6 @@
 package br.com.systemsgs.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -7,6 +8,7 @@ import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 
 @Data
+@AllArgsConstructor
 @Entity
 @Table(name = "empresa")
 @SequenceGenerator(name = "EmpresaSeq", sequenceName = "SEQ_EMPRESA", allocationSize = 1)
