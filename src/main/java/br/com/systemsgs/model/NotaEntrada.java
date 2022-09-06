@@ -3,6 +3,7 @@ package br.com.systemsgs.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
@@ -19,6 +20,7 @@ public class NotaEntrada implements Serializable {
     private Long id;
     private String schema;
     private byte[] xml;
+    @NotNull(message = "Chave Obrigatória")
     private String chave;
     private String nomeEmitente;
     private String cnpjEmitente;
