@@ -1,6 +1,7 @@
 package br.com.systemsgs.model;
 
 import br.com.swconsultoria.nfe.dom.enuns.AmbienteEnum;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -28,6 +29,7 @@ public class Empresa implements Serializable {
 
     private String razaoSocial;
 
+    @JsonIgnore
     @NotNull(message = "Certificado Obrigatório")
     @NotEmpty(message = "Certificado Obrigatório")
     private byte[] certificado;
