@@ -2,6 +2,7 @@ package br.com.systemsgs.model;
 
 import br.com.swconsultoria.nfe.dom.enuns.AmbienteEnum;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -29,6 +30,9 @@ public class Empresa implements Serializable {
 
     private String razaoSocial;
 
+    private String uf;
+
+    @JsonProperty(access = JsonProperty.Access.READ_WRITE)
     @NotNull(message = "Certificado Obrigatório")
     @NotEmpty(message = "Certificado Obrigatório")
     private byte[] certificado;
@@ -40,8 +44,4 @@ public class Empresa implements Serializable {
     @Enumerated(EnumType.STRING)
     private AmbienteEnum ambiente;
 
-    @JsonIgnore
-    public byte[] getCertificado() {
-        return certificado;
-    }
 }
