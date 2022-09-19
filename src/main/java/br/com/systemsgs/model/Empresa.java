@@ -29,7 +29,6 @@ public class Empresa implements Serializable {
 
     private String razaoSocial;
 
-    @JsonIgnore
     @NotNull(message = "Certificado Obrigatório")
     @NotEmpty(message = "Certificado Obrigatório")
     private byte[] certificado;
@@ -41,4 +40,8 @@ public class Empresa implements Serializable {
     @Enumerated(EnumType.STRING)
     private AmbienteEnum ambiente;
 
+    @JsonIgnore
+    public byte[] getCertificado() {
+        return certificado;
+    }
 }
